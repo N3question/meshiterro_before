@@ -37,13 +37,17 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
       
       ## 名前を保存するカラム
-      # Meshiterro アプリでは、ユーザ登録の際に名前を登録
-      # devise の用意するテーブルには、名前を保存するカラムがないため、このカラムを追加。手順①
-      # [記述後]名前が保存が可能になる。
+       # Meshiterro アプリでは、ユーザ登録の際に名前を登録
+      # 手順①. ＞ devise の用意するテーブルには、名前を保存するカラムがないため、このカラムを追加。
+       # [記述後]名前が保存が可能になる。
       t.string :name
-      # このファイルを使って、データベースへマイグレーションを行う
-      # $ rails db:migrate ＞手順②
-      # devise のモデルを作成したことで、config フォルダの routes.rb ファイルには、ルーティングが自動的に追加される。
+       # このファイルを使って、データベースへマイグレーションを行う
+      # 手順② ＞ $ rails db:migrate 
+       # devise のモデルを作成したことで、config フォルダの routes.rb ファイルには、ルーティングが自動的に追加される。
+       # ここに記述しただけではViewには表示されていない。
+      # 手順③ ＞ $ rails g devise:views
+       # Gemfileの手順終了後に実行した。
+      # NEXT views/devise/registrations の new.html.erb
 
 
       t.timestamps null: false
