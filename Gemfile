@@ -57,8 +57,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# devise をインストールするために必要な手順①
-# gem '[インストールしたい Gem の名前]
+
+# 手順①＞gem '[インストールしたい Gem の名前] => devise をインストールするために必要。
 gem 'devise'
-# devise をインストールするために必要な手②＞$ bundle install
-# Gemfile という設計書に書いた内容を、Rails アプリケーションで使えるようにするためのコマンド
+# 手順②＞$ bundle install => devise をインストールするために必要。
+ # Gemfile という設計書に書いた内容を、Rails アプリケーションで使えるようにするためのコマンド
+ # devise の場合は Gem をインストールした後に、改めてインストールの手順が必要。
+# 手順③ ＞$ rails g devise:install
+
+# 手順④ ＞＄ rails g devise User
+ # devise を利用=>ユーザテーブルを作成して、ログインに必要なユーザ情報を保存する必要...このユーザテーブルを自動的に作成 
+ # rails g devise モデル名 = devise 独自のルール
+ # [記述後]「User」という名のモデルと、users テーブル用のマイグレーションファイルが作成
