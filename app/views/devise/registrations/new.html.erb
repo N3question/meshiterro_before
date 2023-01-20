@@ -1,12 +1,22 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<!--diveseのフォームヘルパーの変更-->
+  <!--form_forをform_withに変更-->
+    <!--form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| -->
+  <!--nameのfieldに autofocus: true を追加-->
+  <!--NEXT ログイン画面の Go_to app/views/devise/sessions/new.html.erb-->
+<%= form_with model: @user, url: user_registration_path do |f| %>
+
   <%= render "devise/shared/error_messages", resource: resource %>
   
-  <!--ユーザ登録の際に name も登録するため、以下追加-->
+  
+  <!--ユーザ登録の際に name も登録する-->
+    <!--現状では name を入力しても、データとして保存することはできない状態-->
+    <!--NEXT controller の編集-->
+      <!--deviseのストロングパラメータを編集する場合、ApplicationController に記述-->
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name autofocus: true %>
   </div>
 
   <div class="field">

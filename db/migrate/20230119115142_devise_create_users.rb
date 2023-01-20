@@ -38,9 +38,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       
       ## 名前を保存するカラム
        # Meshiterro アプリでは、ユーザ登録の際に名前を登録
-      # 手順①. ＞ devise の用意するテーブルには、名前を保存するカラムがないため、このカラムを追加。
+      # 手順①. ＞ devise の用意するテーブルには、名前を保存するカラムがないため、t.string :nameを追加。
        # [記述後]名前が保存が可能になる。
-      t.string :name
        # このファイルを使って、データベースへマイグレーションを行う
       # 手順② ＞ $ rails db:migrate 
        # devise のモデルを作成したことで、config フォルダの routes.rb ファイルには、ルーティングが自動的に追加される。
@@ -48,6 +47,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # 手順③ ＞ $ rails g devise:views
        # Gemfileの手順終了後に実行した。
       # NEXT views/devise/registrations の new.html.erb
+      t.string :name
 
 
       t.timestamps null: false
