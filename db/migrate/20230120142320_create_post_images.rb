@@ -16,7 +16,7 @@ class CreatePostImages < ActiveRecord::Migration[6.1]
     create_table :post_images do |t|
       t.string :shop_name # 追加
       t.text :caption # 追加
-      t.integer :user_id # 
+      t.integer :user_id # 追加？
       t.timestamps
     end
   end

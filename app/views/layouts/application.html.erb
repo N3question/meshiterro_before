@@ -12,18 +12,19 @@
 
   <body>
     <!--動的ヘッダーの作成-->
+      <!--header内の記述-->
+        <!--NEXT Go_to app/views/devise/registrations/new.html.erb-->
     <header>
-      <% if user_signed_in? %> <!--devise側で用意しているヘルパーメゾット-->
-        <!--ログイン済みの場合、if user_signed_in?からelseのコードが表示-->
-        <!--ログインしていない場合、elseからend間のコードが表示-->
+      <% if user_signed_in? %> <!--devise側で用意しているヘルパーメゾット--><!--ログイン済みの場合、if user_signed_in?からelseのコードが表示-->
+        <li><%= link_to '投稿フォーム', new_post_image_path %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <% else %>
+      <% else %> <!--ログインしていない場合、elseからend間のコードが表示-->
         <li><%= link_to "新規登録", new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path%></li>
      
       <% end %>
     </header>
-    <!--NEXT Go_to app/views/devise/registrations/new.html.erb-->
+    
     
     <%= yield %>
   </body>

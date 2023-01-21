@@ -1,0 +1,20 @@
+<!--form_withを利用してpost_images_path/post_imagesに画像をアップロードする機能を実装-->
+    <!--画像アップロードフィールド-->
+        <!--f.file_field :image, accept: "image/*"-->
+<!--Routingの確認-->
+    <!--すでにresourcesでnewアクションを設定しているので変更なし-->
+        <!--onlyオプションを使用している場合、resourcesのonly内にnewアクションの記述があるかを確認しておく-->
+<!--ここまでで投稿画面に必要なViewの記述が完成している-->
+<!--NEXT PostImageをデータベースに登録する機能の作成-->
+    <!--Go_to app/models/post_image.rb-->
+    
+<h1>画像投稿フォーム</h1>
+  <%= form_with model: @post_image do |f| %>
+    <h4>画像</h4>
+      <%= f.file_field :image, accept: "image/*" %>
+    <h4>ショップ名</h4>
+      <%= f.text_field :shop_name, %>
+    <h4>説明</h4>
+      <%= f.text_area :caption %>
+    <%= f.submit '投稿' %>
+  <%end%>

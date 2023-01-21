@@ -49,7 +49,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # NEXT views/devise/registrations の new.html.erb
       t.string :name
 
-
       t.timestamps null: false
     end
 
